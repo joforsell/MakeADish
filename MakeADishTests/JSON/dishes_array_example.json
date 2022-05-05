@@ -1,0 +1,20 @@
+[
+    {
+        "ingredients": [],
+        "id": "BAB22466-1509-43D6-AFD6-BD64DF4C6072",
+        "ratings": [],
+        "title": "Testdish",
+        "description": "Describing the test dish",
+        "tags": [],
+        "video_url_string": "URL to dish video"
+    },
+    {
+        "ingredients": [],
+        "id": "57AD9DA4-E4AC-424F-9B60-00A0AFF38E78",
+        "ratings": [],
+        "title": "New testdish",
+        "description": "Describing the new test dish",
+        "tags": [],
+        "video_url_string": "URL to dish video"
+    }
+]
