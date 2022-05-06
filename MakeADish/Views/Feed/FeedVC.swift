@@ -9,11 +9,15 @@ import UIKit
 
 class FeedVC: UITableViewController {
     private let service: DishesServiceable
-    var reqError: Error?
+    var reqError: RequestError?
     var dishes = [Dish]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView = DynamicSizeTableView()
+        tableView.register(DishCell.self, forCellReuseIdentifier: "Dish")
+        tableView.estimatedRowHeight = 400
 
         view.backgroundColor = .purple
         
@@ -37,8 +41,10 @@ class FeedVC: UITableViewController {
         Task {
             do {
                 dishes = try await service.getAllDishes()
+                tableView.reloadData()
+                tableView.invalidateIntrinsicContentSize()
                 completion?()
-            } catch {
+            } catch let error as RequestError {
                 reqError = error
             }
         }
@@ -48,6 +54,10 @@ class FeedVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         dishes.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

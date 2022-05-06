@@ -16,10 +16,3 @@ struct Dish: Codable, Identifiable {
     var tags: [String]
     var ratings: [Int]
 }
-
-extension Dish {
-    enum CodingKeys: String, CodingKey {
-        case id, title, description, ingredients, tags, ratings
-        case videoUrlString = "video_url_string"
-    }
-}

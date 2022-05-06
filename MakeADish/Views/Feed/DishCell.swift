@@ -12,6 +12,15 @@ class DishCell: UITableViewCell {
     var dish: Dish? {
         didSet {
             guard let dishItem = dish else { return }
+            
+            dishImageView.image = UIImage(named: "placeholder")
+            dishTitle.text = dishItem.title
+            dishDescription.text = dishItem.description
+            for tag in dishItem.tags {
+                let label = UILabel()
+                label.text = tag
+                dishTags.addArrangedSubview(label)
+            }
         }
     }
     
@@ -39,10 +48,14 @@ class DishCell: UITableViewCell {
         return label
     }()
     
-    let dishTags: UICollectionView = {
-        let collectionView = UICollectionView()
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionView
+    let dishTags: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.alignment = .trailing
+        stackView.backgroundColor = .systemRed
+        stackView.layoutIfNeeded()
+        return stackView
     }()
     
     // MARK: - Init
@@ -56,6 +69,7 @@ class DishCell: UITableViewCell {
         contentView.addSubview(dishTags)
         
         NSLayoutConstraint.activate([
+            dishImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             dishImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             dishImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
@@ -67,7 +81,11 @@ class DishCell: UITableViewCell {
             dishDescription.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             dishDescription.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
-            dishTags.topAnchor.constraint(equalTo: dishDescription.bottomAnchor, constant: 20)
+//            dishTags.heightAnchor.constraint(equalToConstant: 100),
+            dishTags.topAnchor.constraint(equalTo: dishDescription.bottomAnchor, constant: 10),
+            dishTags.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+//            dishTags.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            dishTags.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 10)
         ])
     }
     

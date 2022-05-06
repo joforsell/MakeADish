@@ -17,6 +17,6 @@ protocol Endpoint {
 
 extension Endpoint {
     var baseURL: String {
-        return "https://localhost:8080/"
+        return "http://localhost:8080/"
     }
 }
