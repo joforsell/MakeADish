@@ -14,10 +14,10 @@ protocol DishesServiceable {
 
 struct DishesService: HTTPClient, DishesServiceable {
     func getAllDishes() async throws -> [Dish] {
-        try await sendRequest(endpoint: DishesEndpoint.allDishes, responseModel: [Dish].self)
+        try await sendJsonRequest(endpoint: DishesEndpoint.allDishes, responseModel: [Dish].self)
     }
     
     func addDish(_ dish: Dish) async throws -> Dish {
-        try await sendRequest(endpoint: DishesEndpoint.addDish(dish), responseModel: Dish.self)
+        try await sendJsonRequest(endpoint: DishesEndpoint.addDish(dish), responseModel: Dish.self)
     }
 }

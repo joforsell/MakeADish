@@ -6,7 +6,7 @@
         "title": "Testdish",
         "description": "Describing the test dish",
         "tags": [],
-        "video_url_string": "URL to dish video"
+        "videoId": "URL to dish video"
     },
     {
         "ingredients": [],
@@ -15,6 +15,6 @@
         "title": "New testdish",
         "description": "Describing the new test dish",
         "tags": [],
-        "video_url_string": "URL to dish video"
+        "videoId": "URL to dish video"
     }
 ]

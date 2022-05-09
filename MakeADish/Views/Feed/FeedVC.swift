@@ -18,8 +18,9 @@ class FeedVC: UITableViewController {
         tableView = DynamicSizeTableView()
         tableView.register(DishCell.self, forCellReuseIdentifier: "Dish")
         tableView.estimatedRowHeight = 400
-
-        view.backgroundColor = .purple
+        
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
         
         loadDishes()
     }
@@ -43,6 +44,7 @@ class FeedVC: UITableViewController {
                 dishes = try await service.getAllDishes()
                 tableView.reloadData()
                 tableView.invalidateIntrinsicContentSize()
+                refreshControl?.endRefreshing()
                 completion?()
             } catch let error as RequestError {
                 reqError = error
@@ -64,8 +66,48 @@ class FeedVC: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Dish", for: indexPath) as? DishCell else {
             fatalError()
         }
-        cell.dish = dishes[indexPath.item]
+        let dish = dishes[indexPath.item]
+        Task {
+            do {
+                cell.dishImageView.image = try await getImageForId(dish.videoId)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        cell.dishTitle.text = dish.title
+        cell.dishDescription.text = dish.description
+        cell.tagViews = makeTagViews(tags: dish.tags)
         return cell
     }
+    
+//    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        if scrollView.contentOffset.y < -200 {
+//            loadDishes()
+//        }
+//    }
 
+    @objc
+    func onRefresh() {
+        loadDishes()
+    }
+    
+    // MARK: - Cell logic
+    
+    let imageLoader = ImageLoader()
+    
+    func getImageForId(_ id: String) async throws -> UIImage {
+        let url = URL(string: "https://img.youtube.com/vi/\(id)/0.jpg")!
+        let image = try await imageLoader.fetch(url)
+        return image
+    }
+    
+    func makeTagViews(tags: [String]) -> [UILabel] {
+        var labels = [UILabel]()
+        for tag in tags {
+            let label = UILabel()
+            label.text = tag
+            labels.append(label)
+        }
+        return labels
+    }
 }

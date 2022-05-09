@@ -5,5 +5,5 @@
         "title": "Testdish",
         "description": "Describing the test dish",
         "tags": [],
-        "videoUrlString": "URL to dish video"
+        "video_id": "URL to dish video"
     }

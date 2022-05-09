@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E20747D28292AD600A28212 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E20747C28292AD600A28212 /* ImageLoader.swift */; };
 		3E8CA05B2822634B00435C28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CA05A2822634B00435C28 /* AppDelegate.swift */; };
 		3E8CA05D2822634B00435C28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CA05C2822634B00435C28 /* SceneDelegate.swift */; };
 		3E8CA0642822634C00435C28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E8CA0632822634C00435C28 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E20747C28292AD600A28212 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		3E8CA0572822634B00435C28 /* MakeADish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeADish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E8CA05A2822634B00435C28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E8CA05C2822634B00435C28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				3E8CA0A52823B5A700435C28 /* Services */,
 				3E8CA09E2823B25D00435C28 /* Endpoints */,
 				3E8CA0942823A70700435C28 /* Base */,
+				3E20747C28292AD600A28212 /* ImageLoader.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				3E8CA0982823A81200435C28 /* HTTPMethod.swift in Sources */,
 				3E8CA08B2822686B00435C28 /* FeedVC.swift in Sources */,
 				3E8CA09D2823AA2C00435C28 /* HTTPClient.swift in Sources */,
+				3E20747D28292AD600A28212 /* ImageLoader.swift in Sources */,
 				3E8CA05D2822634B00435C28 /* SceneDelegate.swift in Sources */,
 				3E8CA09A2823A8B700435C28 /* RequestError.swift in Sources */,
 				3E8E9A4E282500A70036E8EE /* DynamicSizeTableView.swift in Sources */,

@@ -8,7 +8,7 @@
 import XCTest
 @testable import MakeADish
 
-class MakeADishTests: XCTestCase {
+class FeedVCTests: XCTestCase {
     
     func testFeedVCFetchAllDishes() throws {
         let vc = FeedVC(service: DishesServiceMock())

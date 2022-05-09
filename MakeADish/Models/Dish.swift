@@ -11,7 +11,7 @@ struct Dish: Codable, Identifiable {
     var id: UUID
     var title: String
     var description: String
-    var videoUrlString: String
+    var videoId: String
     var ingredients: [String]
     var tags: [String]
     var ratings: [Int]
