@@ -80,11 +80,11 @@ class FeedVC: UITableViewController {
         return cell
     }
     
-//    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        if scrollView.contentOffset.y < -200 {
-//            loadDishes()
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let dish = dishes[indexPath.item]
+        let vc = DishVC(dish: dish)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
     @objc
     func onRefresh() {

@@ -36,7 +36,7 @@ class ProfileVC: UIViewController, UITextFieldDelegate {
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.backgroundColor = .systemBlue
         btn.setTitle("Submit", for: .normal)
-        btn.addTarget(self, action: #selector(submitAction), for: .touchUpInside)
+        btn.addTarget(ProfileVC.self, action: #selector(submitAction), for: .touchUpInside)
         return btn
     }()
     

@@ -13,6 +13,9 @@ class DishCell: UITableViewCell {
         didSet {
             guard let tagViews = tagViews else { return }
             
+            // To make sure old tags don't stay when reloading.
+            dishTags.safelyRemoveArrangedSubviews()
+            
             for tagView in tagViews {
                 dishTags.addArrangedSubview(tagView)
             }
@@ -79,7 +82,7 @@ class DishCell: UITableViewCell {
             
             dishTags.topAnchor.constraint(equalTo: dishDescription.bottomAnchor, constant: 10),
             dishTags.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            dishTags.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+            dishTags.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
     }
     

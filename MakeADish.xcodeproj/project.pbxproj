@@ -31,7 +31,11 @@
 		3E8CA0AF2823F15A00435C28 /* dish_example.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E8CA0AE2823F15A00435C28 /* dish_example.json */; };
 		3E8CA0B228244E4700435C28 /* DishesServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CA0B128244E4700435C28 /* DishesServiceMock.swift */; };
 		3E8CA0B52824554700435C28 /* DishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CA0B42824554700435C28 /* DishCell.swift */; };
+		3E8D6880284F348100FE59B7 /* UIStackView+RemoveSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D687F284F348100FE59B7 /* UIStackView+RemoveSubviews.swift */; };
+		3E8D6882284F36AE00FE59B7 /* DishVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D6881284F36AE00FE59B7 /* DishVC.swift */; };
 		3E8E9A4E282500A70036E8EE /* DynamicSizeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8E9A4D282500A70036E8EE /* DynamicSizeTableView.swift */; };
+		3ED4704328512A9D00978568 /* VideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED4704228512A9D00978568 /* VideoVC.swift */; };
+		3ED4704528513C0700978568 /* UIColor+StaticColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED4704428513C0700978568 /* UIColor+StaticColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +84,11 @@
 		3E8CA0AE2823F15A00435C28 /* dish_example.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dish_example.json; sourceTree = "<group>"; };
 		3E8CA0B128244E4700435C28 /* DishesServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesServiceMock.swift; sourceTree = "<group>"; };
 		3E8CA0B42824554700435C28 /* DishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCell.swift; sourceTree = "<group>"; };
+		3E8D687F284F348100FE59B7 /* UIStackView+RemoveSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+RemoveSubviews.swift"; sourceTree = "<group>"; };
+		3E8D6881284F36AE00FE59B7 /* DishVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishVC.swift; sourceTree = "<group>"; };
 		3E8E9A4D282500A70036E8EE /* DynamicSizeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableView.swift; sourceTree = "<group>"; };
+		3ED4704228512A9D00978568 /* VideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoVC.swift; sourceTree = "<group>"; };
+		3ED4704428513C0700978568 /* UIColor+StaticColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+StaticColors.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				3E8CA0A72823C25800435C28 /* Encodable+ToDictionary.swift */,
+				3E8D687F284F348100FE59B7 /* UIStackView+RemoveSubviews.swift */,
+				3ED4704428513C0700978568 /* UIColor+StaticColors.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -250,6 +260,8 @@
 			children = (
 				3E8E9A4D282500A70036E8EE /* DynamicSizeTableView.swift */,
 				3E8CA08A2822686B00435C28 /* FeedVC.swift */,
+				3E8D6881284F36AE00FE59B7 /* DishVC.swift */,
+				3ED4704228512A9D00978568 /* VideoVC.swift */,
 				3E8CA0B42824554700435C28 /* DishCell.swift */,
 			);
 			path = Feed;
@@ -388,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E8CA0A22823B46F00435C28 /* DishesEndpoint.swift in Sources */,
+				3E8D6880284F348100FE59B7 /* UIStackView+RemoveSubviews.swift in Sources */,
 				3E8CA0962823A71600435C28 /* Endpoint.swift in Sources */,
 				3E8CA08F2822688200435C28 /* ProfileVC.swift in Sources */,
 				3E8CA0A02823B26C00435C28 /* Dish.swift in Sources */,
@@ -398,11 +411,14 @@
 				3E8CA08B2822686B00435C28 /* FeedVC.swift in Sources */,
 				3E8CA09D2823AA2C00435C28 /* HTTPClient.swift in Sources */,
 				3E20747D28292AD600A28212 /* ImageLoader.swift in Sources */,
+				3E8D6882284F36AE00FE59B7 /* DishVC.swift in Sources */,
+				3ED4704328512A9D00978568 /* VideoVC.swift in Sources */,
 				3E8CA05D2822634B00435C28 /* SceneDelegate.swift in Sources */,
 				3E8CA09A2823A8B700435C28 /* RequestError.swift in Sources */,
 				3E8E9A4E282500A70036E8EE /* DynamicSizeTableView.swift in Sources */,
 				3E8CA0A82823C25800435C28 /* Encodable+ToDictionary.swift in Sources */,
 				3E8CA0A42823B5A200435C28 /* DishesService.swift in Sources */,
+				3ED4704528513C0700978568 /* UIColor+StaticColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
