@@ -42,36 +42,66 @@ class DishVC: UIViewController {
         
         view.backgroundColor = .white
         
+        makeVideoView()
+        setTitle(to: dish.title)
+        makeStarsView(with: dish.ratings)
+        
+        setConstraints()
+    }
+}
+
+// MARK: - Set UI
+
+extension DishVC {
+    func makeVideoView() {
         videoVC.videoId = dish.videoId
         addChild(videoVC)
         videoVC.didMove(toParent: self)
         videoVC.view.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(videoVC.view)
-        
-        titleView.text = dish.title
+    }
+
+    func setTitle(to title: String) {
+        titleView.text = title
         view.addSubview(titleView)
-                
-        for _ in 0..<getRatingAverage(from: dish.ratings) {
+    }
+
+    func makeStarsView(with ratings: [Int]) {
+        func getRatingAverage(from ratings: [Int]) -> Int {
+            let total = ratings.reduce(0, +)
+            guard !ratings.isEmpty else { return 0 }
+            let average = total/ratings.count
+            return average
+        }
+
+        let averageRating = getRatingAverage(from: ratings)
+        
+        for _ in 0..<averageRating {
             let star = UIImageView(image: UIImage(systemName: "star.fill"))
             star.tintColor = .starYellow
             starsView.addArrangedSubview(star)
-            print("Added filled star")
         }
         
-        for _ in 0..<(5 - getRatingAverage(from: dish.ratings)) {
+        for _ in 0..<(5 - averageRating) {
             let star = UIImageView(image: UIImage(systemName: "star"))
             star.tintColor = .starYellow
             starsView.addArrangedSubview(star)
-            print("Added empty star")
+        }
+        
+        if ratings.isEmpty {
+            for star in starsView.arrangedSubviews {
+                star.tintColor = .gray
+                star.layer.opacity = 0.5
+            }
         }
         
         view.addSubview(starsView)
-        
-        setConstraints()
     }
-    
-    // MARK: - Constraints
-    
+}
+
+// MARK: - Constraints
+
+extension DishVC {
     func setConstraints() {
         NSLayoutConstraint.activate([
             videoVC.view.topAnchor.constraint(equalTo: view.topAnchor),
@@ -86,11 +116,5 @@ class DishVC: UIViewController {
             starsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
             starsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * 0.7),
         ])
-    }
-    
-    func getRatingAverage(from ratings: [Int]) -> Int {
-        let total = ratings.reduce(0, +)
-        let average = total/ratings.count
-        return average
     }
 }
