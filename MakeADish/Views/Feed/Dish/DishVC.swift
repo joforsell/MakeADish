@@ -10,8 +10,9 @@ import WebKit
 
 class DishVC: UIViewController {
     
-    let dish: Dish
+    var dish: Dish
     let videoVC = VideoVC()
+    let ingredientsVC = IngredientsVC()
     
     let titleView: UILabel = {
         let label = UILabel()
@@ -26,6 +27,13 @@ class DishVC: UIViewController {
         view.axis = .horizontal
         view.distribution = .fillEqually
         return view
+    }()
+    
+    let descriptionView: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .preferredFont(forTextStyle: .callout)
+        return label
     }()
     
     init(dish: Dish) {
@@ -45,6 +53,8 @@ class DishVC: UIViewController {
         makeVideoView()
         setTitle(to: dish.title)
         makeStarsView(with: dish.ratings)
+        setDescription(to: dish.description)
+        makeIngredientsView(with: dish.ingredients ?? [])
         
         setConstraints()
     }
@@ -66,13 +76,14 @@ extension DishVC {
         view.addSubview(titleView)
     }
 
+    func getRatingAverage(from ratings: [Int]) -> Int {
+        let total = ratings.reduce(0, +)
+        guard !ratings.isEmpty else { return 0 }
+        let average = total/ratings.count
+        return average
+    }
+    
     func makeStarsView(with ratings: [Int]) {
-        func getRatingAverage(from ratings: [Int]) -> Int {
-            let total = ratings.reduce(0, +)
-            guard !ratings.isEmpty else { return 0 }
-            let average = total/ratings.count
-            return average
-        }
 
         let averageRating = getRatingAverage(from: ratings)
         
@@ -97,6 +108,19 @@ extension DishVC {
         
         view.addSubview(starsView)
     }
+    
+    func setDescription(to description: String) {
+        descriptionView.text = description
+        view.addSubview(descriptionView)
+    }
+    
+    func makeIngredientsView(with ingredients: [Ingredient]) {
+        ingredientsVC.ingredients = dish.ingredients ?? []
+        addChild(ingredientsVC)
+        ingredientsVC.didMove(toParent: self)
+        ingredientsVC.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(ingredientsVC.view)
+    }
 }
 
 // MARK: - Constraints
@@ -115,6 +139,13 @@ extension DishVC {
             starsView.topAnchor.constraint(equalTo: videoVC.view.bottomAnchor, constant: 8),
             starsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
             starsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * 0.7),
+            
+            descriptionView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 8),
+            descriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            descriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            
+            ingredientsVC.view.topAnchor.constraint(equalTo: descriptionView.bottomAnchor, constant: 16),
+            ingredientsVC.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
     }
 }

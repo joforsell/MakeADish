@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E20747D28292AD600A28212 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E20747C28292AD600A28212 /* ImageLoader.swift */; };
+		3E75D12D2852843700C34C90 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E75D12C2852843700C34C90 /* PaddingLabel.swift */; };
 		3E8CA05B2822634B00435C28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CA05A2822634B00435C28 /* AppDelegate.swift */; };
 		3E8CA05D2822634B00435C28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CA05C2822634B00435C28 /* SceneDelegate.swift */; };
 		3E8CA0642822634C00435C28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E8CA0632822634C00435C28 /* Assets.xcassets */; };
@@ -34,6 +35,11 @@
 		3E8D6880284F348100FE59B7 /* UIStackView+RemoveSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D687F284F348100FE59B7 /* UIStackView+RemoveSubviews.swift */; };
 		3E8D6882284F36AE00FE59B7 /* DishVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D6881284F36AE00FE59B7 /* DishVC.swift */; };
 		3E8E9A4E282500A70036E8EE /* DynamicSizeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8E9A4D282500A70036E8EE /* DynamicSizeTableView.swift */; };
+		3E9DE5B528567E2700A77E34 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9DE5B428567E2700A77E34 /* Ingredient.swift */; };
+		3E9DE5B728567EAE00A77E34 /* MeasuringUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9DE5B628567EAE00A77E34 /* MeasuringUnit.swift */; };
+		3E9DE5B928567FFD00A77E34 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9DE5B828567FFD00A77E34 /* Comment.swift */; };
+		3E9DE5BB2856804100A77E34 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9DE5BA2856804100A77E34 /* User.swift */; };
+		3EB8B9492857C3CF003A2037 /* IngredientsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB8B9482857C3CF003A2037 /* IngredientsVC.swift */; };
 		3ED4704328512A9D00978568 /* VideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED4704228512A9D00978568 /* VideoVC.swift */; };
 		3ED4704528513C0700978568 /* UIColor+StaticColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED4704428513C0700978568 /* UIColor+StaticColors.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		3E20747C28292AD600A28212 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		3E75D12C2852843700C34C90 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		3E8CA0572822634B00435C28 /* MakeADish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeADish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E8CA05A2822634B00435C28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E8CA05C2822634B00435C28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +94,11 @@
 		3E8D687F284F348100FE59B7 /* UIStackView+RemoveSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+RemoveSubviews.swift"; sourceTree = "<group>"; };
 		3E8D6881284F36AE00FE59B7 /* DishVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishVC.swift; sourceTree = "<group>"; };
 		3E8E9A4D282500A70036E8EE /* DynamicSizeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableView.swift; sourceTree = "<group>"; };
+		3E9DE5B428567E2700A77E34 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		3E9DE5B628567EAE00A77E34 /* MeasuringUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringUnit.swift; sourceTree = "<group>"; };
+		3E9DE5B828567FFD00A77E34 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		3E9DE5BA2856804100A77E34 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3EB8B9482857C3CF003A2037 /* IngredientsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsVC.swift; sourceTree = "<group>"; };
 		3ED4704228512A9D00978568 /* VideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoVC.swift; sourceTree = "<group>"; };
 		3ED4704428513C0700978568 /* UIColor+StaticColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+StaticColors.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +128,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E75D12B2852831000C34C90 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3E75D12C2852843700C34C90 /* PaddingLabel.swift */,
+				3E8E9A4D282500A70036E8EE /* DynamicSizeTableView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		3E8CA04E2822634A00435C28 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +160,7 @@
 		3E8CA0592822634B00435C28 /* MakeADish */ = {
 			isa = PBXGroup;
 			children = (
+				3E75D12B2852831000C34C90 /* Helpers */,
 				3E8CA0A62823C23400435C28 /* Extensions */,
 				3E8CA0932823A49A00435C28 /* Network */,
 				3E8CA05A2822634B00435C28 /* AppDelegate.swift */,
@@ -207,6 +229,10 @@
 			isa = PBXGroup;
 			children = (
 				3E8CA09F2823B26C00435C28 /* Dish.swift */,
+				3E9DE5B828567FFD00A77E34 /* Comment.swift */,
+				3E9DE5BA2856804100A77E34 /* User.swift */,
+				3E9DE5B428567E2700A77E34 /* Ingredient.swift */,
+				3E9DE5B628567EAE00A77E34 /* MeasuringUnit.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -258,13 +284,21 @@
 		3E8CA0B32824553B00435C28 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				3E8E9A4D282500A70036E8EE /* DynamicSizeTableView.swift */,
 				3E8CA08A2822686B00435C28 /* FeedVC.swift */,
-				3E8D6881284F36AE00FE59B7 /* DishVC.swift */,
-				3ED4704228512A9D00978568 /* VideoVC.swift */,
 				3E8CA0B42824554700435C28 /* DishCell.swift */,
+				3EB8B9472857C3B0003A2037 /* Dish */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		3EB8B9472857C3B0003A2037 /* Dish */ = {
+			isa = PBXGroup;
+			children = (
+				3E8D6881284F36AE00FE59B7 /* DishVC.swift */,
+				3ED4704228512A9D00978568 /* VideoVC.swift */,
+				3EB8B9482857C3CF003A2037 /* IngredientsVC.swift */,
+			);
+			path = Dish;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,12 +436,15 @@
 				3E8CA0A22823B46F00435C28 /* DishesEndpoint.swift in Sources */,
 				3E8D6880284F348100FE59B7 /* UIStackView+RemoveSubviews.swift in Sources */,
 				3E8CA0962823A71600435C28 /* Endpoint.swift in Sources */,
+				3E9DE5BB2856804100A77E34 /* User.swift in Sources */,
+				3E75D12D2852843700C34C90 /* PaddingLabel.swift in Sources */,
 				3E8CA08F2822688200435C28 /* ProfileVC.swift in Sources */,
 				3E8CA0A02823B26C00435C28 /* Dish.swift in Sources */,
 				3E8CA08D2822687B00435C28 /* SearchVC.swift in Sources */,
 				3E8CA0B52824554700435C28 /* DishCell.swift in Sources */,
 				3E8CA05B2822634B00435C28 /* AppDelegate.swift in Sources */,
 				3E8CA0982823A81200435C28 /* HTTPMethod.swift in Sources */,
+				3E9DE5B528567E2700A77E34 /* Ingredient.swift in Sources */,
 				3E8CA08B2822686B00435C28 /* FeedVC.swift in Sources */,
 				3E8CA09D2823AA2C00435C28 /* HTTPClient.swift in Sources */,
 				3E20747D28292AD600A28212 /* ImageLoader.swift in Sources */,
@@ -415,8 +452,11 @@
 				3ED4704328512A9D00978568 /* VideoVC.swift in Sources */,
 				3E8CA05D2822634B00435C28 /* SceneDelegate.swift in Sources */,
 				3E8CA09A2823A8B700435C28 /* RequestError.swift in Sources */,
+				3E9DE5B728567EAE00A77E34 /* MeasuringUnit.swift in Sources */,
+				3E9DE5B928567FFD00A77E34 /* Comment.swift in Sources */,
 				3E8E9A4E282500A70036E8EE /* DynamicSizeTableView.swift in Sources */,
 				3E8CA0A82823C25800435C28 /* Encodable+ToDictionary.swift in Sources */,
+				3EB8B9492857C3CF003A2037 /* IngredientsVC.swift in Sources */,
 				3E8CA0A42823B5A200435C28 /* DishesService.swift in Sources */,
 				3ED4704528513C0700978568 /* UIColor+StaticColors.swift in Sources */,
 			);

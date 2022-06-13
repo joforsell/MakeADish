@@ -10,33 +10,61 @@ import UIKit
 class ProfileVC: UIViewController, UITextFieldDelegate {
     private let service: DishesServiceable
     
+    let titleLabel: UILabel = {
+        let view = UILabel()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.text = "Enter dish title"
+        return view
+    }()
+    
     let titleTF: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.borderStyle = .bezel
+        tf.borderStyle = .roundedRect
+        tf.autocorrectionType = .no
+        tf.autocapitalizationType = .words
         return tf
+    }()
+    
+    let descLabel: UILabel = {
+        let view = UILabel()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.text = "Enter dish description"
+        return view
     }()
     
     let descTF: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.borderStyle = .bezel
+        tf.borderStyle = .roundedRect
+        tf.autocorrectionType = .no
+        tf.autocapitalizationType = .sentences
         return tf
+    }()
+    
+    let videoLabel: UILabel = {
+        let view = UILabel()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.text = "Enter YouTube link"
+        return view
     }()
 
     let videoIdTF: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.borderStyle = .bezel
+        tf.borderStyle = .roundedRect
+        tf.autocorrectionType = .no
+        tf.autocapitalizationType = .none
         return tf
     }()
     
     let submitButton: UIButton = {
-        let btn = UIButton()
+        let btn = UIButton(configuration: .bordered())
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.backgroundColor = .systemBlue
+        btn.tintColor = .systemBlue
         btn.setTitle("Submit", for: .normal)
-        btn.addTarget(ProfileVC.self, action: #selector(submitAction), for: .touchUpInside)
+        btn.setImage(UIImage(systemName: "paperplane.fill"), for: .normal)
+        btn.addTarget(self, action: #selector(submitAction), for: .touchUpInside)
         return btn
     }()
     
@@ -59,33 +87,56 @@ class ProfileVC: UIViewController, UITextFieldDelegate {
     }
     
     func addSubviews() {
+        view.addSubview(titleLabel)
         view.addSubview(titleTF)
+        view.addSubview(descLabel)
         view.addSubview(descTF)
+        view.addSubview(videoLabel)
         view.addSubview(videoIdTF)
         view.addSubview(submitButton)
     }
     
+    // MARK: - Constraints
+    
+    let labelHeight: CGFloat = 20
+    let textFieldHeight: CGFloat = 32
+    let horizontalPadding: CGFloat = 20
+    let labelTopPadding: CGFloat = 60
+    let textFieldTopPadding: CGFloat = 20
+    
     func addConstraints() {
         NSLayoutConstraint.activate([
-            titleTF.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            titleTF.heightAnchor.constraint(equalToConstant: 20),
-            titleTF.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            titleTF.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            titleLabel.heightAnchor.constraint(equalToConstant: labelHeight),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalPadding),
+            
+            titleTF.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: textFieldTopPadding),
+            titleTF.heightAnchor.constraint(equalToConstant: textFieldHeight),
+            titleTF.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalPadding),
+            titleTF.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalPadding),
+            
+            descLabel.topAnchor.constraint(equalTo: titleTF.topAnchor, constant: labelTopPadding),
+            descLabel.heightAnchor.constraint(equalToConstant: labelHeight),
+            descLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalPadding),
 
-            descTF.topAnchor.constraint(equalTo: titleTF.bottomAnchor, constant: 20),
-            descTF.heightAnchor.constraint(equalToConstant: 20),
-            descTF.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            descTF.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            descTF.topAnchor.constraint(equalTo: descLabel.bottomAnchor, constant: textFieldTopPadding),
+            descTF.heightAnchor.constraint(equalToConstant: textFieldHeight),
+            descTF.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalPadding),
+            descTF.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalPadding),
+            
+            videoLabel.topAnchor.constraint(equalTo: descTF.topAnchor, constant: labelTopPadding),
+            videoLabel.heightAnchor.constraint(equalToConstant: labelHeight),
+            videoLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalPadding),
 
-            videoIdTF.topAnchor.constraint(equalTo: descTF.bottomAnchor, constant: 20),
-            videoIdTF.heightAnchor.constraint(equalToConstant: 20),
-            videoIdTF.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            videoIdTF.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            videoIdTF.topAnchor.constraint(equalTo: videoLabel.bottomAnchor, constant: textFieldTopPadding),
+            videoIdTF.heightAnchor.constraint(equalToConstant: textFieldHeight),
+            videoIdTF.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalPadding),
+            videoIdTF.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalPadding),
             
             submitButton.topAnchor.constraint(equalTo: videoIdTF.bottomAnchor, constant: 20),
-            submitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            submitButton.widthAnchor.constraint(equalToConstant: 60),
-            submitButton.heightAnchor.constraint(equalTo: submitButton.widthAnchor, multiplier: 0.5)
+            submitButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            submitButton.widthAnchor.constraint(equalToConstant: submitButton.intrinsicContentSize.width),
+            submitButton.heightAnchor.constraint(equalToConstant: submitButton.intrinsicContentSize.height)
         ])
     }
     
@@ -94,7 +145,7 @@ class ProfileVC: UIViewController, UITextFieldDelegate {
         guard let title = titleTF.text, let description = descTF.text, let videoUrl = videoIdTF.text, let videoId = extractYoutubeIdFromLink(link: videoUrl) else { return }
         
         
-        let newDish = Dish(id: UUID(), title: title, description: description, videoId: videoId, ingredients: [], tags: [], ratings: [])
+        let newDish = Dish(id: UUID(), title: title, description: description, videoId: videoId, tags: [], ratings: [])
         Task {
             do {
                 let _ = try await service.addDish(newDish)

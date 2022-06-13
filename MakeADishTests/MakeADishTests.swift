@@ -24,3 +24,37 @@ class FeedVCTests: XCTestCase {
         XCTAssertEqual(vc.dishes.first?.title, "Testdish")
     }
 }
+
+class DishVCTests: XCTestCase {
+    
+    let vc = DishVC(dish: Dish(id: UUID(),
+                               title: "Perfect Paella",
+                               description: "The perfect Spanish paella with rice",
+                               videoId: "wetw2",
+                               ingredients: ["Rice", "Paellastuff", "Salt", "Pepper"],
+                               tags: ["Spanish", "Low carb"],
+                               ratings: [5, 1, 3, 2, 4]))
+
+    
+    func testDishVCMakesFiveStars() throws {
+        vc.loadView()
+        vc.viewDidLoad()
+        
+        XCTAssertEqual(vc.starsView.arrangedSubviews.count, 5)
+    }
+    
+    func testDishVCGraysStarsIfNoRatings() throws {
+        vc.dish.ratings = []
+        vc.loadView()
+        vc.viewDidLoad()
+        
+        XCTAssertEqual(vc.starsView.arrangedSubviews[0].tintColor, .gray)
+        XCTAssertEqual(vc.starsView.arrangedSubviews[0].layer.opacity, 0.5)
+    }
+    
+    func testDishVCGetsAverageRating() throws {
+        let averageRating = vc.getRatingAverage(from: vc.dish.ratings)
+        
+        XCTAssertEqual(averageRating, 3)
+    }
+}

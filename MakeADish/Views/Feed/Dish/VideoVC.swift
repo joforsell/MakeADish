@@ -31,6 +31,5 @@ class VideoVC: UIViewController, WKUIDelegate {
     func loadVideo(with videoId: String) {
         guard let youtubeURL = URL(string: "https://www.youtube.com/embed/\(videoId)") else { return }
         webView.load(URLRequest(url: youtubeURL))
-        print("Loading video...")
     }
 }

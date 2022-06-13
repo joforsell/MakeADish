@@ -25,8 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func createFeedNC() -> UINavigationController {
         let feedVC = FeedVC(service: DishesService())
-        feedVC.title = "Home"
-        feedVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+        feedVC.title = "Recipes"
+        feedVC.tabBarItem = UITabBarItem(title: "Recipes", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
         
         return UINavigationController(rootViewController: feedVC)
     }

@@ -12,7 +12,8 @@ struct Dish: Codable, Identifiable {
     var title: String
     var description: String
     var videoId: String
-    var ingredients: [String]
+    var comments: [Comment]?
+    var ingredients: [Ingredient]?
     var tags: [String]
     var ratings: [Int]
 }
