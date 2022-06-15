@@ -13,6 +13,7 @@
 		3E84764728586C4200C62706 /* MADTextFieldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84764628586C4200C62706 /* MADTextFieldLabel.swift */; };
 		3E84764928586C6000C62706 /* MADTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84764828586C6000C62706 /* MADTextField.swift */; };
 		3E84764B28590D2C00C62706 /* MADButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84764A28590D2C00C62706 /* MADButton.swift */; };
+		3E84764D28591D1300C62706 /* AddIngredientsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84764C28591D1300C62706 /* AddIngredientsVC.swift */; };
 		3E8CA05B2822634B00435C28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CA05A2822634B00435C28 /* AppDelegate.swift */; };
 		3E8CA05D2822634B00435C28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CA05C2822634B00435C28 /* SceneDelegate.swift */; };
 		3E8CA0642822634C00435C28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E8CA0632822634C00435C28 /* Assets.xcassets */; };
@@ -22,7 +23,7 @@
 		3E8CA07E2822634C00435C28 /* MakeADishUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CA07D2822634C00435C28 /* MakeADishUITestsLaunchTests.swift */; };
 		3E8CA08B2822686B00435C28 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CA08A2822686B00435C28 /* FeedVC.swift */; };
 		3E8CA08D2822687B00435C28 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CA08C2822687B00435C28 /* SearchVC.swift */; };
-		3E8CA08F2822688200435C28 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CA08E2822688200435C28 /* ProfileVC.swift */; };
+		3E8CA08F2822688200435C28 /* AddDishVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CA08E2822688200435C28 /* AddDishVC.swift */; };
 		3E8CA0962823A71600435C28 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CA0952823A71600435C28 /* Endpoint.swift */; };
 		3E8CA0982823A81200435C28 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CA0972823A81200435C28 /* HTTPMethod.swift */; };
 		3E8CA09A2823A8B700435C28 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CA0992823A8B700435C28 /* RequestError.swift */; };
@@ -46,6 +47,7 @@
 		3EB8B9492857C3CF003A2037 /* IngredientsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB8B9482857C3CF003A2037 /* IngredientsVC.swift */; };
 		3ED4704328512A9D00978568 /* VideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED4704228512A9D00978568 /* VideoVC.swift */; };
 		3ED4704528513C0700978568 /* UIColor+StaticColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED4704428513C0700978568 /* UIColor+StaticColors.swift */; };
+		3ED896BB285A6EE300812A95 /* MADIngredientRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED896BA285A6EE300812A95 /* MADIngredientRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,7 @@
 		3E84764628586C4200C62706 /* MADTextFieldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MADTextFieldLabel.swift; sourceTree = "<group>"; };
 		3E84764828586C6000C62706 /* MADTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MADTextField.swift; sourceTree = "<group>"; };
 		3E84764A28590D2C00C62706 /* MADButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MADButton.swift; sourceTree = "<group>"; };
+		3E84764C28591D1300C62706 /* AddIngredientsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientsVC.swift; sourceTree = "<group>"; };
 		3E8CA0572822634B00435C28 /* MakeADish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeADish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E8CA05A2822634B00435C28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E8CA05C2822634B00435C28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +88,7 @@
 		3E8CA07D2822634C00435C28 /* MakeADishUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeADishUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3E8CA08A2822686B00435C28 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		3E8CA08C2822687B00435C28 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
-		3E8CA08E2822688200435C28 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		3E8CA08E2822688200435C28 /* AddDishVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDishVC.swift; sourceTree = "<group>"; };
 		3E8CA0952823A71600435C28 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		3E8CA0972823A81200435C28 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		3E8CA0992823A8B700435C28 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 		3EB8B9482857C3CF003A2037 /* IngredientsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsVC.swift; sourceTree = "<group>"; };
 		3ED4704228512A9D00978568 /* VideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoVC.swift; sourceTree = "<group>"; };
 		3ED4704428513C0700978568 /* UIColor+StaticColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+StaticColors.swift"; sourceTree = "<group>"; };
+		3ED896BA285A6EE300812A95 /* MADIngredientRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MADIngredientRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +152,9 @@
 		3E84764328586BA400C62706 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				3E8CA08E2822688200435C28 /* ProfileVC.swift */,
+				3E8CA08E2822688200435C28 /* AddDishVC.swift */,
+				3E84764C28591D1300C62706 /* AddIngredientsVC.swift */,
+				3ED896BA285A6EE300812A95 /* MADIngredientRow.swift */,
 				3E84764428586BE500C62706 /* MADTextFieldRow.swift */,
 				3E84764828586C6000C62706 /* MADTextField.swift */,
 				3E84764628586C4200C62706 /* MADTextFieldLabel.swift */,
@@ -457,10 +463,11 @@
 				3E8D6880284F348100FE59B7 /* UIStackView+RemoveSubviews.swift in Sources */,
 				3E8CA0962823A71600435C28 /* Endpoint.swift in Sources */,
 				3E9DE5BB2856804100A77E34 /* User.swift in Sources */,
+				3ED896BB285A6EE300812A95 /* MADIngredientRow.swift in Sources */,
 				3E75D12D2852843700C34C90 /* PaddingLabel.swift in Sources */,
 				3E84764728586C4200C62706 /* MADTextFieldLabel.swift in Sources */,
 				3E84764528586BE500C62706 /* MADTextFieldRow.swift in Sources */,
-				3E8CA08F2822688200435C28 /* ProfileVC.swift in Sources */,
+				3E8CA08F2822688200435C28 /* AddDishVC.swift in Sources */,
 				3E8CA0A02823B26C00435C28 /* Dish.swift in Sources */,
 				3E8CA08D2822687B00435C28 /* SearchVC.swift in Sources */,
 				3E84764928586C6000C62706 /* MADTextField.swift in Sources */,
@@ -478,6 +485,7 @@
 				3E8CA09A2823A8B700435C28 /* RequestError.swift in Sources */,
 				3E9DE5B728567EAE00A77E34 /* MeasuringUnit.swift in Sources */,
 				3E9DE5B928567FFD00A77E34 /* Comment.swift in Sources */,
+				3E84764D28591D1300C62706 /* AddIngredientsVC.swift in Sources */,
 				3E8E9A4E282500A70036E8EE /* DynamicSizeTableView.swift in Sources */,
 				3E8CA0A82823C25800435C28 /* Encodable+ToDictionary.swift in Sources */,
 				3EB8B9492857C3CF003A2037 /* IngredientsVC.swift in Sources */,

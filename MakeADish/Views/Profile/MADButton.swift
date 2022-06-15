@@ -14,7 +14,7 @@ final class MADButton: UIButton {
         configure()
     }
     
-    init(_ label: String, image: UIImage? = nil, tintColor: UIColor = .systemBlue, configuration: UIButton.Configuration = .bordered()) {
+    init(_ label: String? = nil, image: UIImage? = nil, tintColor: UIColor = .systemBlue, configuration: UIButton.Configuration = .bordered()) {
         super.init(frame: .zero)
         self.tintColor = tintColor
         setTitle(label, for: .normal)

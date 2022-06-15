@@ -37,16 +37,17 @@ class MADTextFieldRow: UIView {
     // MARK: - Constraints
     
     func addConstraints() {
-        let padding: CGFloat = 20
+        let padding: CGFloat = 4
         
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: topAnchor, constant: padding),
-            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
-            label.heightAnchor.constraint(equalToConstant: 20),
+            label.topAnchor.constraint(equalTo: topAnchor),
+            label.leadingAnchor.constraint(equalTo: leadingAnchor),
+            label.heightAnchor.constraint(equalToConstant: label.intrinsicContentSize.height),
             
             textField.topAnchor.constraint(equalTo: label.bottomAnchor, constant: padding),
-            textField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
-            textField.heightAnchor.constraint(equalToConstant: 32)
+            textField.leadingAnchor.constraint(equalTo: leadingAnchor),
+            textField.trailingAnchor.constraint(equalTo: trailingAnchor),
+            textField.heightAnchor.constraint(equalToConstant: textField.intrinsicContentSize.height + 8)
         ])
     }
 }

@@ -14,8 +14,8 @@ final class MADTextField: UITextField {
         configure()
     }
     
-    init(placeholder: String?, borderStyle: UITextField.BorderStyle, autocapitalizationType: UITextAutocapitalizationType) {
-        super.init(frame: .zero)
+    init(frame: CGRect = .zero, placeholder: String?, borderStyle: UITextField.BorderStyle = .roundedRect, autocapitalizationType: UITextAutocapitalizationType = .sentences) {
+        super.init(frame: frame)
         self.placeholder = placeholder
         self.borderStyle = borderStyle
         self.autocapitalizationType = autocapitalizationType
