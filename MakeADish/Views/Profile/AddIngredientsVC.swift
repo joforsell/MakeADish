@@ -72,7 +72,9 @@ class AddIngredientsVC: UIViewController {
     
     @objc
     func addAction() {
-        guard let name = ingredientTextField.text, !name.isEmpty, let volume = volumeTextField.text, !volume.isEmpty, let unit = unit else { return }
+        guard let name = ingredientTextField.text, !name.isEmpty,
+                let volume = volumeTextField.text, !volume.isEmpty,
+                let unit = unit else { return }
         
         let newIngredient = Ingredient(id: UUID(), name: name, volume: Double(volume) ?? 0, unit: unit)
         unitTextField.text = nil

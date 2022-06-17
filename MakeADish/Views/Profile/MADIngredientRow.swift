@@ -23,6 +23,10 @@ class MADIngredientRow: UIView {
         self.volumeLabel.text = String(volume)
         self.unitLabel.text = unit.shorthand
         translatesAutoresizingMaskIntoConstraints = false
+        addSubview(nameLabel)
+        addSubview(volumeLabel)
+        addSubview(unitLabel)
+        setConstraints()
     }
     
     required init?(coder: NSCoder) {

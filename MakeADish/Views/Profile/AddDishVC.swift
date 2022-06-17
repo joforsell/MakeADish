@@ -10,11 +10,12 @@ import UIKit
 class AddDishVC: UIViewController, UITextFieldDelegate {
     
     private let service: DishesServiceable
-    let addIngredientsVC = AddIngredientsVC()
+    var addIngredientsVC = AddIngredientsVC()
     var ingredients: [UIView] {
         didSet {
             ingredientStack.arrangedSubviews.forEach { ingredientStack.removeArrangedSubview($0) }
             ingredients.forEach { ingredientStack.addArrangedSubview($0) }
+            ingredientStack.layoutSubviews()
         }
     }
     
@@ -31,11 +32,12 @@ class AddDishVC: UIViewController, UITextFieldDelegate {
     private lazy var ingredientStack: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.distribution = .fill
+        view.distribution = .equalSpacing
         view.axis = .vertical
-        view.alignment = .center
-        let dummyIngredient = MADIngredientRow(name: "Dummyingredient", volume: 2, unit: .tablespoon)
-        view.addArrangedSubview(dummyIngredient)
+        view.alignment = .fill
+        view.spacing = 4
+//        let dummyIngredient = MADIngredientRow(name: "Dummyingredient", volume: 2, unit: .tablespoon)
+//        view.addArrangedSubview(dummyIngredient)
         return view
     }()
     
@@ -160,7 +162,5 @@ extension AddDishVC: IngredientsDelegate {
             ingredients.append(separator)
         }
         ingredients.append(ingredientView)
-        print("Ran this function!")
-        ingredientStack.arrangedSubviews.forEach { print($0) }
     }
 }
