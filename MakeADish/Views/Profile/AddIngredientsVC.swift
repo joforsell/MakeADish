@@ -7,13 +7,8 @@
 
 import UIKit
 
-protocol IngredientsDelegate: AnyObject {
-    func makeIngredientView(from ingredient: Ingredient)
-}
-
 class AddIngredientsVC: UIViewController {
     
-    weak var delegate: IngredientsDelegate?
     var unit: MeasuringUnit?
     private lazy var stack: UIStackView = {
         let stack = UIStackView()
@@ -23,6 +18,7 @@ class AddIngredientsVC: UIViewController {
         stack.spacing = 4
         return stack
     }()
+    var action: (Ingredient) -> Void
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +34,15 @@ class AddIngredientsVC: UIViewController {
         unitTextField.inputView = picker
         
         view = stack
+    }
+    
+    init(action: @escaping (Ingredient) -> Void) {
+        self.action = action
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - View setup
@@ -81,7 +86,7 @@ class AddIngredientsVC: UIViewController {
         volumeTextField.text = nil
         ingredientTextField.text = nil
         self.unit = nil
-        delegate?.makeIngredientView(from: newIngredient)
+        action(newIngredient)
     }
 }
 

@@ -67,7 +67,6 @@ class DishCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             dishImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            dishImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
             dishImageView.widthAnchor.constraint(equalTo: dishImageView.heightAnchor, multiplier: 16/9),
             dishImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             dishImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
