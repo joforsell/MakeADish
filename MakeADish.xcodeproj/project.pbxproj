@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3E20747D28292AD600A28212 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E20747C28292AD600A28212 /* ImageLoader.swift */; };
+		3E735239286A4FC500445651 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E735238286A4FC500445651 /* Keys.swift */; };
+		3E73523B286A514400445651 /* VideosEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E73523A286A514400445651 /* VideosEndpoint.swift */; };
+		3E73523D286A552E00445651 /* VideosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E73523C286A552E00445651 /* VideosService.swift */; };
+		3E73523F286A55C500445651 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E73523E286A55C500445651 /* Video.swift */; };
+		3E735241286A5B1300445651 /* VideoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E735240286A5B1300445651 /* VideoResponse.swift */; };
 		3E75D12D2852843700C34C90 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E75D12C2852843700C34C90 /* PaddingLabel.swift */; };
 		3E84764528586BE500C62706 /* MADTextFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84764428586BE500C62706 /* MADTextFieldRow.swift */; };
 		3E84764728586C4200C62706 /* MADTextFieldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84764628586C4200C62706 /* MADTextFieldLabel.swift */; };
@@ -73,6 +78,11 @@
 
 /* Begin PBXFileReference section */
 		3E20747C28292AD600A28212 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		3E735238286A4FC500445651 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		3E73523A286A514400445651 /* VideosEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosEndpoint.swift; sourceTree = "<group>"; };
+		3E73523C286A552E00445651 /* VideosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosService.swift; sourceTree = "<group>"; };
+		3E73523E286A55C500445651 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		3E735240286A5B1300445651 /* VideoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoResponse.swift; sourceTree = "<group>"; };
 		3E75D12C2852843700C34C90 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		3E84764428586BE500C62706 /* MADTextFieldRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MADTextFieldRow.swift; sourceTree = "<group>"; };
 		3E84764628586C4200C62706 /* MADTextFieldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MADTextFieldLabel.swift; sourceTree = "<group>"; };
@@ -157,7 +167,7 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		3E84764328586BA400C62706 /* Profile */ = {
+		3E84764328586BA400C62706 /* AddDish */ = {
 			isa = PBXGroup;
 			children = (
 				3E8CA08E2822688200435C28 /* AddDishVC.swift */,
@@ -171,7 +181,7 @@
 				3E84764628586C4200C62706 /* MADTextFieldLabel.swift */,
 				3E84764A28590D2C00C62706 /* MADButton.swift */,
 			);
-			path = Profile;
+			path = AddDish;
 			sourceTree = "<group>";
 		};
 		3E8CA04E2822634A00435C28 = {
@@ -207,6 +217,7 @@
 				3E8CA0632822634C00435C28 /* Assets.xcassets */,
 				3E8CA0652822634C00435C28 /* LaunchScreen.storyboard */,
 				3E8CA0682822634C00435C28 /* Info.plist */,
+				3E735238286A4FC500445651 /* Keys.swift */,
 			);
 			path = MakeADish;
 			sourceTree = "<group>";
@@ -235,7 +246,7 @@
 			children = (
 				3E8CA0B32824553B00435C28 /* Feed */,
 				3E8CA08C2822687B00435C28 /* SearchVC.swift */,
-				3E84764328586BA400C62706 /* Profile */,
+				3E84764328586BA400C62706 /* AddDish */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -266,6 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				3E8CA09F2823B26C00435C28 /* Dish.swift */,
+				3E73523E286A55C500445651 /* Video.swift */,
+				3E735240286A5B1300445651 /* VideoResponse.swift */,
 				3E9DE5B828567FFD00A77E34 /* Comment.swift */,
 				3E9DE5BA2856804100A77E34 /* User.swift */,
 				3E9DE5B428567E2700A77E34 /* Ingredient.swift */,
@@ -278,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				3E8CA0A12823B46F00435C28 /* DishesEndpoint.swift */,
+				3E73523A286A514400445651 /* VideosEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -286,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				3E8CA0A32823B5A200435C28 /* DishesService.swift */,
+				3E73523C286A552E00445651 /* VideosService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -476,9 +491,11 @@
 				3E8CA0962823A71600435C28 /* Endpoint.swift in Sources */,
 				3E9DE5BB2856804100A77E34 /* User.swift in Sources */,
 				3ED896BB285A6EE300812A95 /* MADIngredientRow.swift in Sources */,
+				3E73523D286A552E00445651 /* VideosService.swift in Sources */,
 				3E75D12D2852843700C34C90 /* PaddingLabel.swift in Sources */,
 				3E84764728586C4200C62706 /* MADTextFieldLabel.swift in Sources */,
 				3E84764528586BE500C62706 /* MADTextFieldRow.swift in Sources */,
+				3E73523B286A514400445651 /* VideosEndpoint.swift in Sources */,
 				3E8CA08F2822688200435C28 /* AddDishVC.swift in Sources */,
 				3E8CA0A02823B26C00435C28 /* Dish.swift in Sources */,
 				3E8CA08D2822687B00435C28 /* SearchVC.swift in Sources */,
@@ -498,13 +515,16 @@
 				3E8CA05D2822634B00435C28 /* SceneDelegate.swift in Sources */,
 				3E8CA09A2823A8B700435C28 /* RequestError.swift in Sources */,
 				3E9DE5B728567EAE00A77E34 /* MeasuringUnit.swift in Sources */,
+				3E73523F286A55C500445651 /* Video.swift in Sources */,
 				3E9DE5B928567FFD00A77E34 /* Comment.swift in Sources */,
+				3E735241286A5B1300445651 /* VideoResponse.swift in Sources */,
 				3E84764D28591D1300C62706 /* AddIngredientsVC.swift in Sources */,
 				3E8E9A4E282500A70036E8EE /* DynamicSizeTableView.swift in Sources */,
 				3E8CA0A82823C25800435C28 /* Encodable+ToDictionary.swift in Sources */,
 				3EB8F5C328605EBB00991D95 /* IngredientListVC.swift in Sources */,
 				3EB8B9492857C3CF003A2037 /* IngredientsVC.swift in Sources */,
 				3E8CA0A42823B5A200435C28 /* DishesService.swift in Sources */,
+				3E735239286A4FC500445651 /* Keys.swift in Sources */,
 				3EB8F5C528605F1A00991D95 /* IngredientListCell.swift in Sources */,
 				3ED4704528513C0700978568 /* UIColor+StaticColors.swift in Sources */,
 			);

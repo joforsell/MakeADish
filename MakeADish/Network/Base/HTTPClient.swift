@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 protocol HTTPClient {
-    func sendJsonRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async throws -> T
+    func sendJsonRequest<T: Decodable>(endpoint: any Endpoint, responseModel: T.Type) async throws -> T
 }
 
 extension HTTPClient {
-    func sendJsonRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async throws -> T {
+    func sendJsonRequest<T: Decodable>(endpoint: any Endpoint, responseModel: T.Type) async throws -> T {
         guard let url = URL(string: endpoint.baseURL + endpoint.path) else {
             throw RequestError.invalidURL
         }
