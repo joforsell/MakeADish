@@ -9,13 +9,34 @@ import UIKit
 
 class AddDishVC: UIViewController, UITextFieldDelegate {
     
-    private let service: DishesServiceable
+    private let dishesService: DishesServiceable
+    private let videosService: VideosServiceable
     private var displayImageVC: DisplayImageVC!
     private var addIngredientsVC: AddIngredientsVC!
     private var ingredientListVC: IngredientListVC!
     private var ingredients = [Ingredient]() {
         didSet {
             ingredientListVC.tableView.reloadData()
+        }
+    }
+    private var video: Video? {
+        didSet {
+            if video != nil {
+                titleRow.textField.text = video?.title
+                descriptionRow.textField.text = video?.description
+            } else {
+                titleRow.textField.text = ""
+                descriptionRow.textField.text = ""
+            }
+        }
+    }
+    private var videoId: String? {
+        didSet {
+            if videoId != nil {
+                Task {
+                    try await displayImageVC.getImageForId(videoId!)
+                }
+            }
         }
     }
     
@@ -31,13 +52,10 @@ class AddDishVC: UIViewController, UITextFieldDelegate {
         return label
     }()
     
-    private lazy var ingredientStack: UIStackView = {
-        let view = UIStackView()
+    private lazy var scrollView: UIScrollView = {
+        let view = UIScrollView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.distribution = .equalSpacing
-        view.axis = .vertical
-        view.alignment = .fill
-        view.spacing = 4
+        view.showsVerticalScrollIndicator = false
         return view
     }()
     
@@ -62,8 +80,9 @@ class AddDishVC: UIViewController, UITextFieldDelegate {
         videoRow.textField.delegate = self
     }
     
-    init(service: DishesServiceable) {
-        self.service = service
+    init(dishesService: DishesServiceable, videosService: VideosServiceable) {
+        self.dishesService = dishesService
+        self.videosService = videosService
         self.ingredients = []
         super.init(nibName: nil, bundle: nil)
     }
@@ -77,19 +96,20 @@ class AddDishVC: UIViewController, UITextFieldDelegate {
     private func addSubviews() {
         addChild(displayImageVC)
         displayImageVC.didMove(toParent: self)
-        view.addSubview(displayImageVC.view)
-        view.addSubview(titleRow)
-        view.addSubview(descriptionRow)
-        view.addSubview(videoRow)
-        view.addSubview(ingredientsLabel)
+        scrollView.addSubview(displayImageVC.view)
+        scrollView.addSubview(titleRow)
+        scrollView.addSubview(descriptionRow)
+        scrollView.addSubview(videoRow)
+        scrollView.addSubview(ingredientsLabel)
         addChild(addIngredientsVC)
         addIngredientsVC.didMove(toParent: self)
-        view.addSubview(addIngredientsVC.view)
+        scrollView.addSubview(addIngredientsVC.view)
         addChild(ingredientListVC)
         ingredientListVC.didMove(toParent: self)
         ingredientListVC.tableView.dataSource = self
-        view.addSubview(ingredientListVC.view)
-        view.addSubview(submitButton)
+        scrollView.addSubview(ingredientListVC.view)
+        scrollView.addSubview(submitButton)
+        view.addSubview(scrollView)
     }
     
     // MARK: - Constraints
@@ -100,11 +120,15 @@ class AddDishVC: UIViewController, UITextFieldDelegate {
         let rowTopPadding: CGFloat = 16
 
         NSLayoutConstraint.activate([
-            displayImageVC.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            displayImageVC.view.topAnchor.constraint(equalTo: scrollView.topAnchor),
             displayImageVC.view.widthAnchor.constraint(equalTo: displayImageVC.view.heightAnchor, multiplier: 16/9),
             displayImageVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             displayImageVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
             
             videoRow.topAnchor.constraint(equalTo: displayImageVC.view.bottomAnchor, constant: horizontalPadding),
             videoRow.heightAnchor.constraint(equalToConstant: videoRow.label.intrinsicContentSize.height + videoRow.textField.intrinsicContentSize.height + 8),
@@ -115,25 +139,26 @@ class AddDishVC: UIViewController, UITextFieldDelegate {
             titleRow.heightAnchor.constraint(equalToConstant: titleRow.label.intrinsicContentSize.height + titleRow.textField.intrinsicContentSize.height + 8),
             titleRow.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalPadding),
             titleRow.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalPadding),
-            
+
             descriptionRow.topAnchor.constraint(equalTo: titleRow.bottomAnchor, constant: rowTopPadding),
             descriptionRow.heightAnchor.constraint(equalToConstant: descriptionRow.label.intrinsicContentSize.height + descriptionRow.textField.intrinsicContentSize.height + 8),
             descriptionRow.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalPadding),
             descriptionRow.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalPadding),
-            
+
             ingredientsLabel.topAnchor.constraint(equalTo: descriptionRow.bottomAnchor, constant: rowTopPadding),
             ingredientsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalPadding),
-            
+
             addIngredientsVC.view.topAnchor.constraint(equalTo: ingredientsLabel.bottomAnchor, constant: 4),
             addIngredientsVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalPadding),
             addIngredientsVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalPadding),
-            
+
             ingredientListVC.view.topAnchor.constraint(equalTo: addIngredientsVC.view.bottomAnchor, constant: rowTopPadding),
             ingredientListVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalPadding),
             ingredientListVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalPadding),
-            
+
             submitButton.topAnchor.constraint(equalTo: ingredientListVC.view.bottomAnchor, constant: rowTopPadding * 2),
             submitButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            submitButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
         ])
     }
     
@@ -147,7 +172,7 @@ class AddDishVC: UIViewController, UITextFieldDelegate {
         let newDish = Dish(id: UUID(), title: title, description: description, videoId: videoId, tags: [], ratings: [])
         Task {
             do {
-                let _ = try await service.addDish(newDish)
+                let _ = try await dishesService.addDish(newDish)
             } catch let reqError as RequestError {
                 print(reqError.customMessage)
             } catch {
@@ -182,9 +207,11 @@ class AddDishVC: UIViewController, UITextFieldDelegate {
         if let videoId = extractYoutubeIdFromLink(link: text) {
             Task {
                 do {
-                    try await displayImageVC.getImageForId(videoId)
-                } catch {
-                    print(error.localizedDescription)
+                    self.videoId = videoId
+                    let videoResponse = try await videosService.getVideo(with: videoId)
+                    video = videoResponse.videos?.first
+                } catch let error as RequestError {
+                    print(error.customMessage)
                 }
             }
         }

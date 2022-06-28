@@ -42,6 +42,7 @@
 		3E8CA0AF2823F15A00435C28 /* dish_example.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E8CA0AE2823F15A00435C28 /* dish_example.json */; };
 		3E8CA0B228244E4700435C28 /* DishesServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CA0B128244E4700435C28 /* DishesServiceMock.swift */; };
 		3E8CA0B52824554700435C28 /* DishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CA0B42824554700435C28 /* DishCell.swift */; };
+		3E8D0FB4286BAE98005A8959 /* Data+PrintJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D0FB3286BAE98005A8959 /* Data+PrintJSON.swift */; };
 		3E8D6880284F348100FE59B7 /* UIStackView+RemoveSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D687F284F348100FE59B7 /* UIStackView+RemoveSubviews.swift */; };
 		3E8D6882284F36AE00FE59B7 /* DishVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D6881284F36AE00FE59B7 /* DishVC.swift */; };
 		3E8E9A4E282500A70036E8EE /* DynamicSizeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8E9A4D282500A70036E8EE /* DynamicSizeTableView.swift */; };
@@ -116,6 +117,7 @@
 		3E8CA0AE2823F15A00435C28 /* dish_example.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dish_example.json; sourceTree = "<group>"; };
 		3E8CA0B128244E4700435C28 /* DishesServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesServiceMock.swift; sourceTree = "<group>"; };
 		3E8CA0B42824554700435C28 /* DishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCell.swift; sourceTree = "<group>"; };
+		3E8D0FB3286BAE98005A8959 /* Data+PrintJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+PrintJSON.swift"; sourceTree = "<group>"; };
 		3E8D687F284F348100FE59B7 /* UIStackView+RemoveSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+RemoveSubviews.swift"; sourceTree = "<group>"; };
 		3E8D6881284F36AE00FE59B7 /* DishVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishVC.swift; sourceTree = "<group>"; };
 		3E8E9A4D282500A70036E8EE /* DynamicSizeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicSizeTableView.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				3E8D687F284F348100FE59B7 /* UIStackView+RemoveSubviews.swift */,
 				3ED4704428513C0700978568 /* UIColor+StaticColors.swift */,
 				3EB8F5C8286102C500991D95 /* UIImage+StaticAssets.swift */,
+				3E8D0FB3286BAE98005A8959 /* Data+PrintJSON.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				3EB8B9492857C3CF003A2037 /* IngredientsVC.swift in Sources */,
 				3E8CA0A42823B5A200435C28 /* DishesService.swift in Sources */,
 				3E735239286A4FC500445651 /* Keys.swift in Sources */,
+				3E8D0FB4286BAE98005A8959 /* Data+PrintJSON.swift in Sources */,
 				3EB8F5C528605F1A00991D95 /* IngredientListCell.swift in Sources */,
 				3ED4704528513C0700978568 /* UIColor+StaticColors.swift in Sources */,
 			);

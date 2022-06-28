@@ -41,7 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func createProfileNC() -> UINavigationController {
-        let addDishVC = AddDishVC(service: DishesService())
+        let addDishVC = AddDishVC(dishesService: DishesService(), videosService: VideosService())
         addDishVC.title = "Profile"
         addDishVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
         

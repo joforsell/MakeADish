@@ -18,6 +18,7 @@ class FeedVC: UITableViewController {
         tableView = DynamicSizeTableView()
         tableView.register(DishCell.self, forCellReuseIdentifier: "Dish")
         tableView.estimatedRowHeight = 400
+        tableView.showsVerticalScrollIndicator = false
         
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
